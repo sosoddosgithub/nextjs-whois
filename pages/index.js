@@ -30,10 +30,11 @@ export default function Home() {
             </form>
             {result && (
                 <div>
-                    <h2>查询结果</h2>
-                    <p>注册状态：{result.status}</p>
-                    <p>注册时间：{result.creationDate}</p>
-                    <p>Whois信息：{result.whois}</p>
+                    <p>状态: {result.status === 'ok' ? '已注册' : '未注册'}</p>
+                    <p>域名: {result.domain}</p>
+                    <p>创建日期: {result.creation_datetime}</p>
+                    <p>到期日期: {result.expiry_datetime}</p>
+                    <p>信息: <span dangerouslySetInnerHTML={{ __html: result.info.replace(/\r\n/g, '<br />') }} /></p>
                 </div>
             )}
         </div>
